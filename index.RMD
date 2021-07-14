@@ -7,6 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 # Carga de las liberias
+# holaaa
+
 ```{r message=FALSE, warning=FALSE}
 library(sf)
 library(raster)
@@ -43,7 +45,7 @@ areasp <-
 ```{r}
 st_crs(orquideas) = 4326
 st_crs(areasp) = 4326
-st_crs(areasp_registros) = 4326
+
 ```
 
 ```{r}
@@ -68,8 +70,12 @@ areasp_registros <-
   sf::st_make_valid() %>%
   sf::st_join(orquideas) %>%
   group_by(nombre_asp) %>%
-  summarize(species = n())
+  summarize(especies = n_distinct(species,na.rm = TRUE))
 ```
+```{r}
+st_crs(areasp_registros) = 4326
+```
+
 # Paleta de colores
 ```{r}
 
@@ -121,8 +127,14 @@ leaflet() %>%
 
 ```
 
+# para que salga la pagina uwu
+ asmgsal
 
+```{r}
+# holaaa
+```
 
+ 
 
 
 
